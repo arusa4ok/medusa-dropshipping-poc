@@ -9,22 +9,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Secrets Shop Design System Colors
+        // Secrets Shop Design System - Exact Colors
         primary: {
-          DEFAULT: '#1a1a1a',
-          light: '#333333',
-          dark: '#000000',
+          DEFAULT: '#E91E8C', // Magenta/Hot Pink
+          light: '#FFF0F7',   // Light magenta background
+          dark: '#D1157A',    // Darker magenta for hover
         },
-        secondary: {
-          DEFAULT: '#f5f5f5',
-          light: '#ffffff',
-          dark: '#e0e0e0',
+        'text': {
+          DEFAULT: '#1a1a1a', // Dark Navy/Black for text
+          secondary: '#666666', // Dark gray for secondary text
         },
-        accent: {
-          DEFAULT: '#ff6b6b',
-          light: '#ff8787',
-          dark: '#ff5252',
+        'background': {
+          DEFAULT: '#FFFFFF', // White primary background
+          light: '#F5F5F5',   // Light gray secondary background
         },
+        'border': {
+          DEFAULT: '#E0E0E0', // Medium gray for borders
+        },
+        // Status colors from design system
+        success: '#7FD856',   // Lime Green
+        warning: '#FF9800',   // Orange
+        error: '#F44336',     // Red
+        info: '#00BCD4',      // Teal/Turquoise
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],

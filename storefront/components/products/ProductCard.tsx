@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Product } from '@/types'
-import { PriceDisplay, PriceRange } from '@/components/ui/PriceDisplay'
+import { PriceDisplay, PriceRange, PriceWithDiscount } from '@/components/ui/PriceDisplay'
 import { Button } from '@/components/ui/Button'
 
 interface ProductCardProps {

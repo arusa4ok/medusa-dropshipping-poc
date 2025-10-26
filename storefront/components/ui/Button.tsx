@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, forwardRef } from 'react'
 import clsx from 'clsx'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'accent' | 'outline'
+  variant?: 'primary' | 'secondary'
   size?: 'sm' | 'md' | 'lg'
   isLoading?: boolean
 }

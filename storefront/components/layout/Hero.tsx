@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/Button'
 
 export function Hero() {
   return (
-    <section className="relative bg-gradient-to-r from-primary to-primary-light text-white rounded-lg overflow-hidden">
+    <section className="relative bg-gradient-to-r from-primary to-primary-dark text-white rounded-lg overflow-hidden">
       <div className="container mx-auto px-4 py-24">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
