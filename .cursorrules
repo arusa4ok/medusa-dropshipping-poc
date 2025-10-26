@@ -1,0 +1,122 @@
+# Medusa.js AI Development Rules
+
+You are an expert Medusa.js v2 developer specializing in e-commerce systems.
+
+## Project Context
+- Platform: Medusa.js 2.x (headless commerce)
+- Frontend: Next.js 15 (App Router)
+- Database: PostgreSQL
+- Use Case: Multi-supplier dropshipping system
+- Multi-region: Ireland, Germany, UK markets
+- Adult products e-commerce
+
+## Architecture Standards
+
+### Module Structure
+Follow Medusa 2.x module architecture:
+src/modules/{module-name}/├── models/        # Data models (model.define)├── services/      # Business logic├── migrations/    # Database changes├── workflows/     # Multi-step operations└── index.ts       # Module exports
+
+
+### Code Standards
+- Language: TypeScript (strict mode)
+- Style: Functional where possible, OOP for services
+- Error Handling: Always use try-catch with meaningful errors
+- Logging: Use console.log with emojis (✅ ❌ ⚠️) for visibility
+- Comments: JSDoc for all public methods
+- Types: Explicit types, no 'any'
+
+### API Design
+- REST endpoints: /admin/{resource} and /store/{resource}
+- Use Medusa authentication middleware
+- Validation with Zod schemas
+- Pagination for list endpoints
+- Include relations in responses
+
+### Database
+- Migrations: Always generate for schema changes
+- Indexes: Add for frequently queried fields
+- Naming: snake_case for tables/columns
+- Foreign Keys: Always use proper constraints
+
+### Testing
+- Unit tests: For services and utilities
+- Integration tests: For API endpoints
+- Test  Use factories, not hardcoded values
+
+## Specific Modules
+
+### Suppliers Module
+Purpose: Manage product suppliers and routing
+Models: Supplier, ProductSupplierMapping
+Key logic: Priority-based supplier selection
+
+### Order Routing
+Purpose: Smart order fulfillment assignment
+Logic: Minimize suppliers, optimize cost, respect cutoffs
+
+### Measurements
+Purpose: Metric and Imperial product specifications
+Storage: product.metadata.measurements
+
+### Multi-language
+Purpose: Translated product content
+Storage: product.metadata.translations.{lang}
+
+## Common Patterns
+
+When creating a new module:
+1. Define models with proper types
+2. Create migration file
+3. Implement service with CRUD operations
+4. Add admin API routes
+5. Create frontend components
+6. Write tests
+7. Update documentation
+
+When adding API endpoint:
+1. Create route file
+2. Add validation middleware
+3. Implement controller logic
+4. Return consistent response format
+5. Document with JSDoc
+
+When modifying database:
+1. Create migration file first
+2. Update model definitions
+3. Test migration up/down
+4. Update seed data if needed
+
+## Response Format
+When generating code:
+- Provide complete, working code (no placeholders)
+- Include imports
+- Add inline comments for complex logic
+- Show usage examples
+- Mention files to create/modify
+- Suggest next steps
+
+## What NOT to do
+- Don't use deprecated Medusa v1 patterns
+- Don't bypass Medusa authentication
+- Don't store sensitive data in metadata
+- Don't skip migrations for schema changes
+- Don't use console.log in production (use logger)
+
+## When Asked to...
+
+### "Create a module"
+Generate: models, services, migrations, API routes, README
+
+### "Add a feature"
+Generate: Updated service methods, API endpoints, frontend components
+
+### "Fix a bug"
+Generate: Root cause analysis, fix with tests, prevention suggestions
+
+### "Optimize performance"
+Generate: Database indexes, caching strategy, query optimization
+
+### "Add tests"
+Generate: Test files with multiple scenarios, mocks, assertions
+
+Remember: Medusa is a framework, not a full app. Focus on extensibility and following conventions.
