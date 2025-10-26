@@ -1,11 +1,43 @@
+import { notFound } from 'next/navigation'
+import Image from 'next/image'
+import { Button } from '@/components/ui/Button'
+import { PriceDisplay, PriceWithDiscount } from '@/components/ui/PriceDisplay'
+import medusaClient from '@/lib/medusa'
+
 interface ProductPageProps {
   params: {
     handle: string
   }
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const { handle } = params
+async function getProduct(handle: string) {
+  try {
+    const { products } = await medusaClient.products.list({ handle })
+    return products[0]
+  } catch (error) {
+    return null
+  }
+}
+
+async function getRelatedProducts(productId: string) {
+  try {
+    const { products } = await medusaClient.products.list({ limit: 8 })
+    return products.filter(p => p.id !== productId).slice(0, 4)
+  } catch (error) {
+    return []
+  }
+}
+
+export default async function ProductPage({ params }: ProductPageProps) {
+  const product = await getProduct(params.handle)
+  
+  if (!product) {
+    notFound()
+  }
+
+  const relatedProducts = await getRelatedProducts(product.id)
+  const imageUrl = product.thumbnail || product.images?.[0]?.url || '/placeholder-product.png'
+  const price = product.variants?.[0]?.prices?.find(p => p.currency_code === 'gbp' || p.currency_code === 'usd')
 
   return (
     <div className="container mx-auto px-4 py-8">
