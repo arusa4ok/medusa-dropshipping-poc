@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/rusakovanton/Projects/medusa-dropshipping-poc"
+      ],
+      "description": "Full access to Medusa project files and structure"
+    },
+    "medusa-docs": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-fetch"
+      ],
+      "env": {
+        "ALLOWED_DOMAINS": "docs.medusajs.com,medusajs.com"
+      },
+      "description": "Fetch Medusa.js documentation and resources"
+    }
+  }
+}
