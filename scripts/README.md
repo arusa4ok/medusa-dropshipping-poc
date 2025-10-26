@@ -1,17 +1,18 @@
 # Scripts
 
-## Seed Products
+## 🎯 Seed Products - Extended Version (Recommended)
 
-Add sample products to your Medusa store.
+Add **50+ products** in **6 categories** to your Medusa store.
 
 ### Usage:
 
 1. **Install dependencies:**
    ```bash
+   cd ~/Projects/medusa-dropshipping-poc
    npm install axios
    ```
 
-2. **Edit credentials in `seed-products.js`:**
+2. **Edit credentials in `seed-products-extended.js`:**
    ```javascript
    const ADMIN_EMAIL = 'your-admin@email.com';
    const ADMIN_PASSWORD = 'your-password';
@@ -19,11 +20,60 @@ Add sample products to your Medusa store.
 
 3. **Run the script:**
    ```bash
-   node scripts/seed-products.js
+   node scripts/seed-products-extended.js
    ```
 
-4. **Check the admin panel:**
-   https://medusa.glaza.me/app/products
+4. **Wait for completion:**
+   - Creates 6 categories
+   - Creates 50+ products
+   - Takes ~2-3 minutes
+
+5. **Check results:**
+   - Admin: https://medusa.glaza.me/app/products
+   - Storefront: http://localhost:8001
+
+### What it creates:
+
+#### Categories (6):
+- 👕 Clothing (10 products)
+- 💻 Electronics (10 products)
+- 🏠 Home & Living (8 products)
+- 💄 Beauty & Health (7 products)
+- 🏃 Sports & Outdoors (8 products)
+- 📚 Books & Media (5 products)
+
+#### Products Include:
+- T-shirts, jeans, jackets
+- Headphones, smart watches, keyboards
+- Bedsheets, lamps, rugs
+- Face cream, shampoo, essential oils
+- Yoga mats, dumbbells, running shoes
+- Books, notebooks, art prints
+
+All with:
+- Realistic prices (9.99 - 159.99 RUB)
+- Multiple variants (sizes where applicable)
+- Placeholder images
+- Published status
+
+---
+
+## 📦 Seed Products - Basic Version
+
+Add just 4 sample products (for testing).
+
+### Usage:
+
+1. **Edit credentials in `seed-products.js`:**
+   ```javascript
+   const ADMIN_EMAIL = 'your-admin@email.com';
+   const ADMIN_PASSWORD = 'your-password';
+   ```
+
+2. **Run:**
+   ```bash
+   node scripts/seed-products.js
+   ```
 
 ### What it creates:
 
