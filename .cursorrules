@@ -14,7 +14,11 @@ You are an expert Medusa.js v2 developer specializing in e-commerce systems.
 
 ### Module Structure
 Follow Medusa 2.x module architecture:
+
+
+
 src/modules/{module-name}/├── models/        # Data models (model.define)├── services/      # Business logic├── migrations/    # Database changes├── workflows/     # Multi-step operations└── index.ts       # Module exports
+
 
 
 ### Code Standards
