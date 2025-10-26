@@ -9,6 +9,15 @@
       ],
       "description": "Full access to Medusa project files and structure"
     },
+    "design-system": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/rusakovanton/Projects/medusa-dropshipping-poc/docs"
+      ],
+      "description": "Access to design system documentation and AI instructions"
+    },
     "medusa-docs": {
       "command": "npx",
       "args": [

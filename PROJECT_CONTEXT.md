@@ -109,10 +109,24 @@ git commit -m "Update dependencies"
 git push
 ```
 
+## Design System & Frontend Instructions
+
+**IMPORTANT:** Before building the frontend, read ALL files in `/docs/design-system/`:
+1. START-HERE.txt - Main starting point
+2. 00-COMPLETE-SUMMARY.txt - Complete overview
+3. secrets-shop-design-system.md - Design specifications
+4. HOW-TO-USE-GUIDE.md - Implementation guide
+5. COMPONENT-EXAMPLES.md - Component templates
+6. QUICK-REFERENCE.md - Quick reference
+7. FILE-INDEX.md - File structure
+
+See `/docs/AI-INSTRUCTIONS.md` for detailed guidance.
+
 ## Resources
 - [Medusa Docs](https://docs.medusajs.com)
 - [Medusa GitHub](https://github.com/medusajs/medusa)
 - [Next.js Docs](https://nextjs.org/docs)
+- **Design System:** `/docs/design-system/`
 
 ## Notes
 - Always test changes locally before deploying
