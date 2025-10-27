@@ -9,32 +9,37 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Secrets Shop Design System - Exact Colors
         primary: {
-          DEFAULT: '#E91E8C', // Magenta/Hot Pink
-          light: '#FFF0F7',   // Light magenta background
-          dark: '#D1157A',    // Darker magenta for hover
+          DEFAULT: '#E91E8C',
+          light: '#FFF0F7',
+          dark: '#D1157A',
         },
-        'text': {
-          DEFAULT: '#1a1a1a', // Dark Navy/Black for text
-          secondary: '#666666', // Dark gray for secondary text
+        background: {
+          DEFAULT: '#FFFFFF',
+          light: '#F5F5F5',
         },
-        'background': {
-          DEFAULT: '#FFFFFF', // White primary background
-          light: '#F5F5F5',   // Light gray secondary background
+        text: {
+          DEFAULT: '#1a1a1a',
+          secondary: '#666666',
         },
-        'border': {
-          DEFAULT: '#E0E0E0', // Medium gray for borders
+        border: {
+          DEFAULT: '#E0E0E0',
         },
-        // Status colors from design system
-        success: '#7FD856',   // Lime Green
-        warning: '#FF9800',   // Orange
-        error: '#F44336',     // Red
-        info: '#00BCD4',      // Teal/Turquoise
+        'luxury-gray': '#666666',
+        'luxury-border': '#E0E0E0',
+        'luxury-dark': '#1a1a1a',
+        'luxury-background': '#F9F9F9',
+        'accent-gold': '#D4AF37',
+        'accent-error': '#F44336',
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Playfair Display', 'serif'],
+        luxury: ['Playfair Display', 'serif'],
+      },
+      boxShadow: {
+        'luxury': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'premium': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       },
       spacing: {
         '18': '4.5rem',

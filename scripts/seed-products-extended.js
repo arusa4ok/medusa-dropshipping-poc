@@ -4,8 +4,8 @@
 const axios = require('axios');
 
 const MEDUSA_URL = 'https://medusa.glaza.me';
-const ADMIN_EMAIL = 'admin@medusa-test.com'; // CHANGE THIS
-const ADMIN_PASSWORD = 'supersecret'; // CHANGE THIS
+const ADMIN_EMAIL = 'seeder@glaza.me';
+const ADMIN_PASSWORD = 'supersecret';
 
 // Categories (Collections in Medusa)
 const categories = [
@@ -82,11 +82,11 @@ const products = [
 
 async function login() {
   try {
-    const response = await axios.post(`${MEDUSA_URL}/admin/auth`, {
+    const response = await axios.post(`${MEDUSA_URL}/auth/user/emailpass`, {
       email: ADMIN_EMAIL,
       password: ADMIN_PASSWORD,
     });
-    return response.data.user.session;
+    return response.data.token;
   } catch (error) {
     console.error('❌ Login failed:', error.response?.data || error.message);
     throw error;

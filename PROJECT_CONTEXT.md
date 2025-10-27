@@ -1,12 +1,15 @@
 # Medusa Dropshipping POC - Project Context
 
+**Last Updated:** 2025-10-27
+
 ## Overview
-This is a Proof of Concept (POC) for a dropshipping e-commerce platform built with Medusa.js.
+This is a Proof of Concept (POC) for a dropshipping e-commerce platform built with Medusa.js v2.
 
 ## Tech Stack
-- **Backend:** Medusa.js (Node.js e-commerce framework)
-- **Frontend:** Next.js (Storefront)
-- **Database:** PostgreSQL
+- **Backend:** Medusa.js v2.11.0 (Node.js e-commerce framework)
+- **Frontend Storefront:** Next.js 15.5.6 (React 18.3.1)
+- **Local Dev Storefront:** Custom Next.js 15 with Secrets Shop design
+- **Database:** PostgreSQL (medusa/medusa123@localhost:5432/medusa)
 - **Deployment:** VPS (147.93.157.172)
 - **Process Manager:** PM2
 
@@ -41,17 +44,41 @@ medusa-store/
 - **Backend Path:** /var/www/medusa-store
 - **Frontend Path:** /var/www/medusa-storefront
 
+### URLs
+- **Admin Panel:** https://medusa.glaza.me/app
+- **Store API:** https://medusa.glaza.me/store
+- **Storefront (VPS):** https://medusa.glaza.me/shop/ru/store
+- **Local Dev Storefront:** http://localhost:8001
+
 ### Git Repository
 - **URL:** https://github.com/arusa4ok/medusa-dropshipping-poc.git
 - **Branch:** main
 - **Owner:** rusa4ok (rusa4ok@gmail.com)
+- **Local Path:** ~/Projects/medusa-dropshipping-poc
 
 ### PM2 Processes
-- **medusa-backend** (ID: 0) - Backend API server
-- **medusa-storefront** (ID: 3) - Next.js frontend
+- **medusa-backend** (ID: 0) - Backend API server (Port: 9000)
+- **medusa-storefront** (ID: 3) - Next.js frontend (Port: 3001)
+
+### Database
+- **Host:** localhost (147.93.157.172 for remote)
+- **Port:** 5432
+- **Database:** medusa
+- **User:** medusa
+- **Password:** medusa123
+- **Region:** Russia (RUB currency)
+
+### API Keys
+- **Publishable Key:** pk_6a4ec36774e2b32a9aee2142ddb408847eec7d62cf9850e50588de669a0f35ac
+- **Sales Channel ID:** sc_01K85KC1FBRDFK7G15MRJZPBMA (Default Sales Channel)
+
+### Admin Users
+- **admin@glaza.me** / admin123 (main admin)
+- **seeder@glaza.me** / supersecret (for seeding scripts)
+- **test@glaza.me** (test user)
 
 ### Medusa CLI
-- **Version:** 1.3.23
+- **Version:** 2.11.0
 - **Config:** medusa-config.ts
 
 ## Development Workflow
@@ -85,7 +112,57 @@ medusa-store/
 - `src/workflows/` - Multi-step business processes
 - `src/subscribers/` - Event-driven logic
 
+## Current Status (2025-10-27)
+
+### Products in Database
+✅ **4 products** successfully seeded:
+- Cotton Bedsheets (49.99 RUB)
+- Memory Foam Pillow (29.99 RUB)
+- Wall Clock (19.99 RUB)
+- Table Lamp (39.99 RUB)
+
+All products:
+- ✅ Published status
+- ✅ Linked to Default Sales Channel
+- ✅ Available via Store API
+- ✅ Visible in local storefront (http://localhost:8001)
+
+### Collections Created
+✅ **6 collections** created (via seed-products-extended.js):
+- Clothing
+- Electronics
+- Home & Living
+- Beauty & Health
+- Sports & Outdoors
+- Books & Media
+
+### Storefront Status
+- **Local Dev:** ✅ Running on http://localhost:8001 with products
+- **VPS Production:** ⚠️ Running but may need additional configuration for product display
+
+### Scripts Available
+
+#### Seed Products (Medusa v2 Compatible)
+```bash
+# Simple seeding (10 products, recommended)
+node scripts/seed-simple-v2.js
+
+# Check products via API
+node scripts/check-products.js
+
+# Extended seeding with categories (48 products, needs v2 fixes)
+node scripts/seed-products-extended.js
+
+# Link products to sales channel (if needed)
+node scripts/link-to-sales-channel.js
+```
+
 ## Common Tasks
+
+### Add More Products
+1. Edit `scripts/seed-simple-v2.js` with new products
+2. Run: `node scripts/seed-simple-v2.js`
+3. Verify: `node scripts/check-products.js`
 
 ### Add New API Endpoint
 1. Create file in `src/api/`

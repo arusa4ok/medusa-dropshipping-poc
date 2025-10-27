@@ -1,6 +1,43 @@
 # Scripts
 
-## 🎯 Seed Products - Extended Version (Recommended)
+## 🎯 Seed Products - Simple v2 (RECOMMENDED for Medusa v2)
+
+**NEW!** Add 10 products to your Medusa v2 store with proper sales channel linking.
+
+### Usage:
+
+1. **Install dependencies:**
+   ```bash
+   cd ~/Projects/medusa-dropshipping-poc
+   npm install axios
+   ```
+
+2. **Credentials already configured:**
+   - Email: seeder@glaza.me
+   - Password: supersecret
+   - Backend: https://medusa.glaza.me
+
+3. **Run the script:**
+   ```bash
+   node scripts/seed-simple-v2.js
+   ```
+
+4. **Verify products:**
+   ```bash
+   node scripts/check-products.js
+   ```
+
+### Features:
+- ✅ Medusa v2 compatible (uses `/auth/user/emailpass`)
+- ✅ Auto-links to Default Sales Channel
+- ✅ Simple product structure without variants
+- ✅ Fast and reliable
+
+---
+
+## 📦 Seed Products - Extended Version
+
+⚠️ **Note:** Needs updates for full Medusa v2 compatibility (variant structure)
 
 Add **50+ products** in **6 categories** to your Medusa store.
 
@@ -12,11 +49,9 @@ Add **50+ products** in **6 categories** to your Medusa store.
    npm install axios
    ```
 
-2. **Edit credentials in `seed-products-extended.js`:**
-   ```javascript
-   const ADMIN_EMAIL = 'your-admin@email.com';
-   const ADMIN_PASSWORD = 'your-password';
-   ```
+2. **Credentials already configured:**
+   - Email: seeder@glaza.me
+   - Password: supersecret
 
 3. **Run the script:**
    ```bash
@@ -100,7 +135,17 @@ Each with multiple size variants.
 
 ---
 
-## Check Products API
+---
+
+## 🔍 Check Products (NEW)
+
+Verify products are available via Store API.
+
+```bash
+node scripts/check-products.js
+```
+
+### Manual API Check
 
 ```bash
 curl -s https://medusa.glaza.me/store/products \
@@ -108,3 +153,15 @@ curl -s https://medusa.glaza.me/store/products \
 ```
 
 Should return products instead of empty array.
+
+---
+
+## 🔗 Link Products to Sales Channel (NEW)
+
+If products exist but aren't visible in store, link them to sales channel.
+
+```bash
+node scripts/link-to-sales-channel.js
+```
+
+**Note:** This script may need endpoint updates for Medusa v2. Use `seed-simple-v2.js` which auto-links products.

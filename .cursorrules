@@ -124,3 +124,5 @@ Generate: Database indexes, caching strategy, query optimization
 Generate: Test files with multiple scenarios, mocks, assertions
 
 Remember: Medusa is a framework, not a full app. Focus on extensibility and following conventions.
+
+Use contex7 MCP for documentation rules
