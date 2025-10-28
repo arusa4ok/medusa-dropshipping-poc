@@ -1,27 +1,24 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import { Providers } from './providers'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Secrets Shop - Dropshipping Store',
-  description: 'Your trusted dropshipping marketplace',
-}
+  title: "Premium Secrets Shop - Adult Products",
+  description: "Exclusive adult products and intimate accessories",
+};
 
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Providers>
-          {children}
-        </Providers>
+      <body className={`${inter.className} bg-gray-50 min-h-screen`}>
+        {children}
       </body>
     </html>
-  )
+  );
 }

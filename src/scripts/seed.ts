@@ -1,6 +1,59 @@
 import { MedusaContainer } from "@medusajs/framework/types"
 
 const products = [
+  {
+    title: "Red Lace Mini Dress",
+    handle: "red-lace-mini-dress", 
+    description: "Sexy red lace mini dress with matching G-string",
+    subtitle: "Leg Avenue • Polyester",
+    status: "published" as const,
+    tags: [{ value: "Lingerie" }],
+    options: [{ title: "Size", values: ["One Size"] }],
+    variants: [{
+      title: "Default",
+      sku: "DRESS_RED_001", 
+      prices: [{ currency_code: "USD" as const, amount: 2799 }],
+      inventory_quantity: 10,
+      manage_inventory: true
+    }],
+    images: [{
+      url: "https://images.unsplash.com/photo-1596498064401-4d5b2c0ff7c2?w=400"
+    }],
+    metadata: {
+      brand: "Leg Avenue",
+      material: "Polyester", 
+      colour: "Red",
+      adult_content: true,
+      gender: "female"
+    }
+  },
+  {
+    title: "Pink Silicone Vibrator",
+    handle: "pink-silicone-vibrator",
+    description: "High-quality silicone vibrator with multiple vibration modes", 
+    subtitle: "DreamToys • Silicone",
+    status: "published" as const,
+    tags: [{ value: "Adult Toy" }],
+    options: [{ title: "Size", values: ["Standard"] }],
+    variants: [{
+      title: "Default",
+      sku: "VIBRATOR_PINK_001",
+      prices: [{ currency_code: "USD" as const, amount: 3999 }],
+      inventory_quantity: 5, 
+      manage_inventory: true
+    }],
+    images: [{
+      url: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400"
+    }],
+    metadata: {
+      brand: "DreamToys",
+      material: "Silicone",
+      colour: "Pink", 
+      adult_content: true,
+      gender: "unisex",
+      waterproof: true
+    }
+  },
   { title: 'Cotton Bedsheets', description: 'Soft cotton bedsheets set', handle: 'cotton-bedsheets', price: 4999 },
   { title: 'Memory Foam Pillow', description: 'Ergonomic memory foam pillow', handle: 'memory-pillow', price: 2999 },
   { title: 'Wall Clock', description: 'Modern wall clock', handle: 'wall-clock', price: 1999 },
@@ -9,8 +62,6 @@ const products = [
   { title: 'Face Cream', description: 'Moisturizing face cream', handle: 'face-cream', price: 2999 },
   { title: 'Shampoo Set', description: 'Natural hair care set', handle: 'shampoo-set', price: 1999 },
   { title: 'Yoga Mat', description: 'Non-slip yoga mat', handle: 'yoga-mat', price: 2999 },
-  { title: 'Dumbbells Set', description: '5kg dumbbells pair', handle: 'dumbbells', price: 4999 },
-  { title: 'Fiction Novel', description: 'Bestselling fiction book', handle: 'fiction-novel', price: 1499 },
 ]
 
 export default async function seedDemoData(container: MedusaContainer) {
@@ -45,11 +96,54 @@ export default async function seedDemoData(container: MedusaContainer) {
       regions = await regionModuleService.listRegions()
     }
 
-    // Create products
+    // Create categories
+    logger.info("Creating adult categories...")
+    const categories = [
+      {
+        name: "Lingerie & Intimate Apparel",
+        handle: "lingerie",
+        description: "Premium lingerie and intimate apparel",
+        metadata: { image: "https://images.unsplash.com/photo-1596498064401-4d5b2c0ff7c2?w=400" }
+      },
+      {
+        name: "Adult Toys & Vibrators",
+        handle: "adult-toys", 
+        description: "High-quality adult toys and vibrators",
+        metadata: { image: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400" }
+      }
+    ]
+
+    const createdCategories = []
+    for (const category of categories) {
+      try {
+        const createdCategory = await productModuleService.createProductCategories(category)
+        logger.info(`✅ Created category: ${createdCategory.name}`)
+        createdCategories.push(createdCategory)
+      } catch (error) {
+        logger.error(`❌ Error creating category:`, error)
+      }
+    }
+
+    // Create products with categories
     logger.info(`Creating ${products.length} products...`)
     
-    for (const productData of products) {
+    const categoryMap = new Map()
+    createdCategories.forEach(cat => {
+      categoryMap.set(cat.handle, cat.id)
+    })
+
+    for (const product of products) {
       try {
+        logger.info(`Creating product: ${product.title}`)
+        
+        // Add category for adult products
+        let productData = { ...product }
+        if (product.handle === 'red-lace-mini-dress' && categoryMap.has('lingerie')) {
+          productData.categories = [{ id: categoryMap.get('lingerie') }]
+        } else if (product.handle === 'pink-silicone-vibrator' && categoryMap.has('adult-toys')) {
+          productData.categories = [{ id: categoryMap.get('adult-toys') }]
+        }
+        
         await productModuleService.createProducts({
           title: productData.title,
           description: productData.description,

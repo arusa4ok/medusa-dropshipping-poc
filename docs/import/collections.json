@@ -1,0 +1,38 @@
+[
+  {
+    "id": "col_lingerie",
+    "title": "Lingerie & Intimate Apparel",
+    "handle": "lingerie",
+    "description": "Premium lingerie and intimate apparel including babydolls, teddies, corsets, and roleplay costumes.",
+    "image": "https://images.unsplash.com/photo-1596498064401-4d5b2c0ff7c2?w=400",
+    "created_at": "2025-10-28T06:54:03.668Z",
+    "updated_at": "2025-10-28T06:54:03.668Z"
+  },
+  {
+    "id": "col_toys",
+    "title": "Adult Toys & Vibrators",
+    "handle": "adult-toys",
+    "description": "High-quality adult toys, vibrators, and intimate accessories.",
+    "image": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400",
+    "created_at": "2025-10-28T06:54:03.668Z",
+    "updated_at": "2025-10-28T06:54:03.668Z"
+  },
+  {
+    "id": "col_couples",
+    "title": "Couples & Gift Sets",
+    "handle": "couples-gifts",
+    "description": "Perfect products for couples including gift sets and shared pleasure items.",
+    "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400",
+    "created_at": "2025-10-28T06:54:03.668Z",
+    "updated_at": "2025-10-28T06:54:03.668Z"
+  },
+  {
+    "id": "col_accessories",
+    "title": "Adult Accessories & Essentials",
+    "handle": "adult-accessories",
+    "description": "Essential adult accessories including lubricants, cleaners, and care products.",
+    "image": "https://images.unsplash.com/photo-1584515979916-893c51de9c9c?w=400",
+    "created_at": "2025-10-28T06:54:03.668Z",
+    "updated_at": "2025-10-28T06:54:03.668Z"
+  }
+]

@@ -9,45 +9,46 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#E91E8C',
-          light: '#FFF0F7',
-          dark: '#D1157A',
-        },
-        background: {
-          DEFAULT: '#FFFFFF',
-          light: '#F5F5F5',
-        },
-        text: {
-          DEFAULT: '#1a1a1a',
-          secondary: '#666666',
-        },
-        border: {
-          DEFAULT: '#E0E0E0',
-        },
-        'luxury-gray': '#666666',
-        'luxury-border': '#E0E0E0',
-        'luxury-dark': '#1a1a1a',
-        'luxury-background': '#F9F9F9',
-        'accent-gold': '#D4AF37',
-        'accent-error': '#F44336',
-      },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Playfair Display', 'serif'],
-        luxury: ['Playfair Display', 'serif'],
-      },
-      boxShadow: {
-        'luxury': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        'premium': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+        primary: '#E91E8C',
+        'primary-dark': '#D1157A',
+        'primary-light': '#FFF0F7',
+        text: '#1a1a1a',
+        'text-secondary': '#666666',
+        border: '#E0E0E0',
+        background: '#F5F5F5',
+        success: '#7FD856',
+        warning: '#FF9800',
+        error: '#F44336',
+        info: '#00BCD4',
       },
       spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '128': '32rem',
+        xs: '4px',
+        sm: '8px',
+        md: '16px',
+        lg: '24px',
+        xl: '32px',
+        '2xl': '48px',
+        '3xl': '64px',
+        '4xl': '96px',
+      },
+      fontSize: {
+        xs: ['12px', { lineHeight: '1.4' }],
+        sm: ['14px', { lineHeight: '1.5' }],
+        base: ['15px', { lineHeight: '1.5' }],
+        lg: ['16px', { lineHeight: '1.6' }],
+        xl: ['18px', { lineHeight: '1.4' }],
+        '2xl': ['24px', { lineHeight: '1.3' }],
+        '3xl': ['32px', { lineHeight: '1.2' }],
+      },
+      borderRadius: {
+        DEFAULT: '4px',
+        md: '6px',
+        lg: '8px',
+        full: '9999px',
       },
     },
   },
   plugins: [],
 }
+
 export default config
